@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
-        Response::macro('success', function (array $data, string $message = 'success') {
+        Response::macro('success', function ($data, string $message = 'success') {
             return response()->json(['data' => $data, 'message' => $message])->setStatusCode(200);
         });
     }

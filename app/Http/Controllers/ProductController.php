@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use App\Services\ProductService;
 use Illuminate\Http\Request;
@@ -10,8 +11,9 @@ class ProductController extends Controller
 {
     //
 
-    public function getAllProducts() {
+    public function getAllProducts()
+    {
 
-        return response()->json(ProductService::getProducts());
+        return response()->success(ProductResource::collection(ProductService::getProducts()));
     }
 }

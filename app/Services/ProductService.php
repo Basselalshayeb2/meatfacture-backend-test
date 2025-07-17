@@ -7,8 +7,15 @@ use Illuminate\Support\Collection;
 
 class ProductService
 {
-    static public function getProducts(): Collection
+    /**
+     * @return Collection
+     */
+    static public function getProducts($filters = []): Collection
     {
-        return Product::all();
+        $data = Product::query();
+        if (!empty($filters['ids'])) {
+            $data->whereIn('id', $filters['ids']);
+        }
+        return $data->get();
     }
 }

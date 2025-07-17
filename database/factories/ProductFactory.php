@@ -19,7 +19,7 @@ class ProductFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'category' => Category::first()->id,
+            'category_id' => Category::first()->id,
             'description' => fake()->text(),
             'price' => fake()->numberBetween(1000, 10000),
             'availability' => fake()->boolean(),
